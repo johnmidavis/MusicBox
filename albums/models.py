@@ -15,6 +15,7 @@ class Album(models.Model):
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     genres = models.ManyToManyField(Genre)
+    path = models.CharField(max_length=400)
     def __str__(self):
         return self.title
 
@@ -22,6 +23,7 @@ class Song(models.Model):
     song_title = models.CharField(max_length=200)
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
     runtime_ms = models.IntegerField()
+    path = models.CharField(max_length=400)
     def __str__(self):
         return self.song_title
 
